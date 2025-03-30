@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Upload TikTok Video</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f8f8;
+			margin: 0;
+			padding: 40px;
+		}
+		.container {
+			background: #fff;
+			max-width: 700px;
+			margin: auto;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		label {
+			font-weight: bold;
+			margin-top: 20px;
+			display: block;
+		}
+		input[type="file"],
+		input[type="text"],
+		select,
+		textarea,
+		input[type="date"],
+		input[type="time"] {
+			width: 100%;
+			padding: 10px;
+			margin-top: 8px;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			resize: vertical;
+		}
+		.toggle-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 20px;
+		}
+		.toggle-row label {
+			margin: 0;
+			font-weight: normal;
+		}
+		.toggle {
+			position: relative;
+			width: 40px;
+			height: 22px;
+		}
+		.toggle input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0; left: 0;
+			right: 0; bottom: 0;
+			background-color: #ccc;
+			border-radius: 22px;
+			transition: .4s;
+		}
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 16px;
+			width: 16px;
+			left: 3px;
+			bottom: 3px;
+			background-color: white;
+			border-radius: 50%;
+			transition: .4s;
+		}
+		.toggle input:checked + .slider {
+			background-color: #333;
+		}
+		.toggle input:checked + .slider:before {
+			transform: translateX(18px);
+		}
+		.note {
+			font-size: 0.9em;
+			color: #777;
+			margin-top: 15px;
+		}
+		.upload-btn {
+			width: 100%;
+			background: #000;
+			color: #fff;
+			border: none;
+			padding: 15px;
+			margin-top: 30px;
+			border-radius: 8px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Upload TikTok Video</h1>
+
+		<label>Upload Video</label>
+		<input type="file" accept="video/mp4,video/quicktime">
+
+		<label>Description</label>
+		<textarea rows="4" placeholder="Enter your video description..."></textarea>
+
+		<label>Privacy Level</label>
+		<select>
+			<option>Self Only</option>
+			<option>Friends</option>
+			<option>Public</option>
+		</select>
+
+		<!-- Scheduling Feature -->
+		<label>Schedule Date</label>
+		<input type="date">
+
+		<label>Schedule Time</label>
+		<input type="time">
+
+		<div class="toggle-row">
+			<span>Disable Duet</span>
+			<label class="toggle">
+				<input type="checkbox">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<div class="toggle-row">
+			<span>Disable Stitch</span>
+			<label class="toggle">
+				<input type="checkbox">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<div class="toggle-row">
+			<span>Disable Comments</span>
+			<label class="toggle">
+				<input type="checkbox">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<div class="toggle-row">
+			<span>Allow Downloads</span>
+			<label class="toggle">
+				<input type="checkbox" checked>
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<div class="toggle-row">
+			<span>Commercial Content</span>
+			<label class="toggle">
+				<input type="checkbox">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<p class="note">By posting, you agree to TikTok’s <a href="#" target="_blank">Music Usage Confirmation</a>.</p>
+
+		<!-- Upload button enabled -->
+		<button class="upload-btn" onclick="window.location.href='success.html'">Upload Video</button>
+	</div>
+</body>
+</html>
