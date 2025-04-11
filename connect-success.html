@@ -35,6 +35,15 @@
 			font-size: 17px;
 			margin-bottom: 30px;
 		}
+		code {
+			background: #eee;
+			padding: 4px 8px;
+			border-radius: 4px;
+			display: inline-block;
+			font-size: 14px;
+			color: #222;
+			margin-top: 8px;
+		}
 		a.button {
 			display: inline-block;
 			padding: 14px 28px;
@@ -49,12 +58,40 @@
 			background-color: #0056b3;
 		}
 	</style>
+	<script>
+		window.onload = function () {
+			const params = new URLSearchParams(window.location.search);
+			const code = params.get("code");
+
+			if (code) {
+				document.getElementById("codeBox").innerText = code;
+
+				// Optional: Send to backend if available
+				/*
+				fetch("https://yourbackend.com/handle-tiktok-code", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ code })
+				}).then(() => {
+					document.getElementById("codeNote").innerText = "✅ Code sent to server.";
+				}).catch(() => {
+					document.getElementById("codeNote").innerText = "❌ Failed to send code to server.";
+				});
+				*/
+			}
+		}
+	</script>
 </head>
 <body>
 	<div class="container">
 		<div class="profile-pic"></div>
 		<h2>You're Connected!</h2>
 		<p>Welcome, <strong>test_user123</strong>. Your TikTok account has been successfully authenticated.</p>
+
+		<p><strong>Authorization Code:</strong></p>
+		<code id="codeBox">Waiting for TikTok...</code>
+		<p id="codeNote" style="font-size: 14px; color: #666; margin-top: 10px;">Copy this code and paste it into your script.</p>
+
 		<a class="button" href="upload.html">Continue to Upload</a>
 	</div>
 </body>
